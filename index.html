@@ -3,109 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FLOW: KINETIC CHOREOGRAPHY</title>
+  <title>FLOW: ARCHITECTURAL GENESIS</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style type="text/tailwindcss">
     @layer utilities {
-      /* Brutalistische Typografie für die Aktionen */
-      .text-action {
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-        font-size: clamp(3rem, 8vw, 8rem);
-        line-height: 0.9;
+      /* Technische Monospace Typografie */
+      .text-cad {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
         text-transform: uppercase;
-        font-weight: 700;
       }
-      
-      /* Outline-Text für den unfertigen State */
-      .text-stroke {
-        -webkit-text-fill-color: transparent;
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: #57534e; /* stone-600 */
-      }
-      .text-stroke-active {
-        -webkit-text-fill-color: #fafaf9; /* stone-50 */
-        -webkit-text-stroke-width: 0;
+      /* Klassische Serif für das Finale */
+      .text-genesis {
+        font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+        font-size: clamp(3rem, 10vw, 10rem);
+        line-height: 0.9;
+        font-weight: 300;
+        letter-spacing: -0.02em;
       }
     }
 
     body {
-      background-color: #000;
+      background-color: #050505; /* Fast Schwarz für besseren Kontrast */
       color: #fff;
       overflow-x: hidden;
     }
 
-    /* Hardware Acceleration für die Hard-Cuts */
-    .frame-img {
-      will-change: opacity, transform;
-      opacity: 0; /* Versteckt am Anfang */
+    /* Das Raster im Hintergrund für den CAD-Look */
+    .cad-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    }
+
+    /* Der leuchtende Scanner */
+    .scanner-beam {
+      box-shadow: 0 0 20px 2px rgba(255, 255, 255, 0.8), 0 0 40px 5px rgba(255, 255, 255, 0.3);
+    }
+
+    .will-change-transform {
+      will-change: transform, opacity, clip-path;
     }
   </style>
 </head>
 <body class="antialiased">
 
-  <div class="h-screen flex flex-col items-center justify-center text-stone-600 uppercase tracking-[0.3em] text-xs">
-    <span>Prepare for service</span>
-    <span class="mt-4 opacity-50">Scroll down</span>
+  <div class="h-screen flex items-center justify-center text-stone-600 uppercase tracking-[0.3em] text-xs">
+    Initiating blueprint render...
   </div>
 
-  <div id="choreo-flow-container" class="relative w-full h-screen bg-black overflow-hidden flex cursor-crosshair">
+  <div id="genesis-flow-container" class="relative w-full h-screen bg-[#050505] overflow-hidden flex cursor-crosshair">
     
-    <div class="w-full md:w-1/2 h-full flex flex-col justify-center px-8 md:px-16 z-20 relative mix-blend-difference pointer-events-none">
-      
-      <div id="tension-timer" class="absolute top-1/4 left-8 md:left-16 text-stone-500 font-mono text-sm tracking-widest">
-        T-MINUS: <span id="timer-ms">00:00:00</span>
+    <div id="cad-ui" class="absolute inset-0 z-20 pointer-events-none cad-grid">
+      <div class="absolute top-8 left-8 text-cad text-stone-500">
+        <span id="coord-x">X: 0.000</span><br>
+        <span id="coord-y">Y: 0.000</span>
       </div>
-
-      <div class="relative w-full h-32 flex items-center">
-        <h2 class="choreo-text absolute text-action text-stroke" data-index="0">Tension</h2>
-        <h2 class="choreo-text absolute text-action text-stroke" data-index="1">Scalpel</h2>
-        <h2 class="choreo-text absolute text-action text-stroke" data-index="2">Extract</h2>
-        <h2 class="choreo-text absolute text-action text-stroke" data-index="3">Fire</h2>
-        <h2 class="choreo-text absolute text-action text-stroke" data-index="4">Plating</h2>
+      <div class="absolute bottom-8 right-8 text-cad text-stone-500 text-right">
+        RENDER: 16-BIT FLOAT<br>
+        MAT: CONCRETE / GLASS
       </div>
-
-      <div id="choreo-progress" class="absolute bottom-1/4 left-8 md:left-16 w-0 h-[1px] bg-white"></div>
-    </div>
-
-    <div class="absolute inset-0 md:relative md:w-1/2 h-full z-10 bg-black">
-      <div class="relative w-full h-full overflow-hidden">
-        
-        <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?q=80&w=1200&auto=format&fit=crop" 
-             class="frame-img absolute inset-0 w-full h-full object-cover grayscale brightness-50 contrast-125" alt="Frame 1" style="opacity: 1;">
-             
-        <img src="https://images.unsplash.com/photo-1590004953392-5aba2e72269a?q=80&w=1200&auto=format&fit=crop" 
-             class="frame-img absolute inset-0 w-full h-full object-cover grayscale brightness-50 contrast-125" alt="Frame 2">
-             
-        <img src="https://images.unsplash.com/photo-1559737558-2f5a35f4523b?q=80&w=1200&auto=format&fit=crop" 
-             class="frame-img absolute inset-0 w-full h-full object-cover grayscale brightness-50 contrast-125" alt="Frame 3">
-             
-        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1200&auto=format&fit=crop" 
-             class="frame-img absolute inset-0 w-full h-full object-cover grayscale brightness-75 contrast-150" alt="Frame 4">
-             
-        <img src="https://images.unsplash.com/photo-1581184953963-d15972933db1?q=80&w=1200&auto=format&fit=crop" 
-             class="frame-img absolute inset-0 w-full h-full object-cover grayscale brightness-50 contrast-125" alt="Frame 5">
-             
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 border border-stone-700 rounded-full flex items-center justify-center opacity-50">
+        <div class="w-1 h-1 bg-stone-500 rounded-full"></div>
       </div>
     </div>
 
-    <div id="flashbang" class="absolute top-1/2 right-1/4 w-4 h-4 bg-white rounded-full z-50 pointer-events-none scale-0 opacity-0 flex items-center justify-center overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=2000&auto=format&fit=crop" 
-           id="final-masterpiece"
-           class="absolute inset-0 w-screen h-screen object-cover opacity-0 object-center" 
-           style="max-width: none; width: 100vw; height: 100vh;" 
-           alt="The Masterpiece">
-      
-      <div id="final-text" class="absolute z-10 bottom-16 left-16 text-stone-900 opacity-0">
-        <span class="text-xs tracking-[0.4em] uppercase font-bold">The Result</span>
-        <h3 class="text-4xl font-light mt-2">Surgical Perfection.</h3>
-      </div>
+    <div id="svg-layer" class="absolute inset-0 z-30 flex items-center justify-center pointer-events-none opacity-100">
+      <svg class="w-full h-full max-w-4xl" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="0.2">
+        <path class="wireframe-path" d="M50 15 L85 35 L85 75 L50 95 L15 75 L15 35 Z" />
+        <path class="wireframe-path" d="M50 15 L50 55 M15 35 L50 55 M85 35 L50 55" />
+        <path class="wireframe-path" d="M50 55 L50 95" />
+        <path class="wireframe-path" d="M32.5 25 L67.5 45 L67.5 85 L32.5 65 Z" stroke-dasharray="1 1" />
+      </svg>
+    </div>
+
+    <div id="photo-layer" class="absolute inset-0 z-10 will-change-transform" style="clip-path: inset(0% 0% 100% 0%);">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop" 
+           alt="Materialized Architecture" 
+           class="w-full h-full object-cover grayscale opacity-0 transition-all duration-1000"
+           id="master-photo">
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-80"></div>
+    </div>
+
+    <div id="scanner" class="absolute top-0 left-0 w-full h-[2px] bg-white z-40 scanner-beam opacity-0 will-change-transform translate-y-0"></div>
+
+    <div id="genesis-text" class="absolute inset-0 z-50 flex flex-col items-center justify-center opacity-0 pointer-events-none">
+      <span class="text-xs tracking-[0.4em] uppercase text-stone-300 mb-6 block">The Space</span>
+      <h2 class="text-genesis text-white text-center">Constructed<br>Silence.</h2>
     </div>
 
   </div>
-  <div class="h-screen flex items-center justify-center text-stone-400 uppercase tracking-[0.3em] text-xs bg-stone-100 border-t border-stone-200">
-    Resume normal breathing
+  <div class="h-[150vh] flex items-center justify-center text-stone-600 uppercase tracking-[0.3em] text-xs border-t border-stone-900 bg-[#050505]">
+    End of simulation
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -115,114 +108,88 @@
     document.addEventListener("DOMContentLoaded", () => {
       gsap.registerPlugin(ScrollTrigger);
 
-      // --- Timer Logic (Act 1 Tension) ---
-      const timerEl = document.getElementById('timer-ms');
-      let startTime = Date.now();
-      let timerInterval = setInterval(() => {
-        let diff = Date.now() - startTime;
-        let ms = String(diff % 1000).padStart(3, '0');
-        let sec = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
-        let min = String(Math.floor((diff / 60000) % 60)).padStart(2, '0');
-        timerEl.innerText = `${min}:${sec}:${ms}`;
-      }, 47); // Weird interval for faster visual updating
+      // --- SVG Path Setup (Natives DrawSVG Fallback) ---
+      // Berechnet die exakte Länge jedes SVG-Pfades und setzt die CSS-Werte auf "verborgen"
+      const paths = document.querySelectorAll('.wireframe-path');
+      paths.forEach(path => {
+        const length = path.getTotalLength();
+        path.style.strokeDasharray = length;
+        path.style.strokeDashoffset = length;
+      });
 
-      // --- GSAP Choreography ---
-      const container = document.getElementById('choreo-flow-container');
-      const texts = gsap.utils.toArray('.choreo-text');
-      const frames = gsap.utils.toArray('.frame-img');
-      const progressBar = document.getElementById('choreo-progress');
-      
-      const flashbang = document.getElementById('flashbang');
-      const finalImage = document.getElementById('final-masterpiece');
-      const finalText = document.getElementById('final-text');
+      // Elemente abgreifen
+      const container = document.getElementById('genesis-flow-container');
+      const cadUI = document.getElementById('cad-ui');
+      const svgLayer = document.getElementById('svg-layer');
+      const photoLayer = document.getElementById('photo-layer');
+      const masterPhoto = document.getElementById('master-photo');
+      const scanner = document.getElementById('scanner');
+      const finalTxt = document.getElementById('genesis-text');
+      const coordX = document.getElementById('coord-x');
+      const coordY = document.getElementById('coord-y');
 
-      // Initiales Setup für die Texte (alle bis auf den ersten verstecken/runtersetzen)
-      gsap.set(texts, { y: 50, opacity: 0 });
-      gsap.set(texts[0], { y: 0, opacity: 1, className: "choreo-text absolute text-action text-stroke-active" });
+      // Fake-Koordinaten Updater während des Scrollens
+      const updateCoordinates = (progress) => {
+        const x = (progress * 144.234).toFixed(3);
+        const y = (Math.sin(progress * Math.PI) * 89.102).toFixed(3);
+        coordX.innerText = `X: ${x}`;
+        coordY.innerText = `Y: ${y}`;
+      };
 
-      // Master Timeline, gepinnt für 400% Viewport-Höhe (Stop-Motion Scrubbing)
+      // Master Timeline (Gepinnt für lange Scroll-Dauer)
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: container,
           start: "top top",
-          end: "+=400%",
-          scrub: true,
+          end: "+=400%", // 4 Viewports scrollen für den gesamten Effekt
+          scrub: 1, // Smoothing von 1 Sekunde für extreme Eleganz
           pin: true,
-          onEnter: () => clearInterval(timerInterval), // Timer stoppen, wenn es losgeht
-          onLeaveBack: () => {
-             // Timer wieder starten, wenn man zurück nach oben scrollt
-             startTime = Date.now();
-             timerInterval = setInterval(() => {
-                let diff = Date.now() - startTime;
-                let ms = String(diff % 1000).padStart(3, '0');
-                let sec = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
-                timerEl.innerText = `00:${sec}:${ms}`;
-             }, 47);
-          }
+          onUpdate: (self) => updateCoordinates(self.progress)
         }
       });
 
-      // Progress Bar animieren
-      tl.to(progressBar, { width: "100vw", ease: "none", duration: texts.length }, 0);
+      /* =========================================================
+         DIE CHOREOGRAFIE
+         ========================================================= */
 
-      // Loop durch die Frames, um harte Schnitte zu erzeugen
-      texts.forEach((text, i) => {
-        if (i === 0) return; // Den ersten Frame haben wir schon beim Start
-        
-        // Die Zeitachse (0 bis Anzahl der Frames)
-        const startTime = i;
-        
-        // 1. Alter Text geht weg (Wird zum Stroke, wandert nach oben)
-        tl.to(texts[i - 1], { 
-          y: -50, 
-          opacity: 0, 
-          className: "choreo-text absolute text-action text-stroke",
-          duration: 0.1 
-        }, startTime - 0.1);
-
-        // 2. Neuer Text kommt rein (Aktiviert, in die Mitte)
-        tl.to(text, { 
-          y: 0, 
-          opacity: 1, 
-          className: "choreo-text absolute text-action text-stroke-active",
-          duration: 0.1 
-        }, startTime);
-
-        // 3. Bild Hard Cut: Altes Bild verstecken, neues sofort zeigen
-        // "steps(1)" sorgt dafür, dass keine Überblendung stattfindet, sondern ein harter Schnitt
-        tl.set(frames[i - 1], { opacity: 0 }, startTime);
-        tl.set(frames[i], { opacity: 1 }, startTime);
-        
-        // Simulierter "Camera Shake" beim Cut (Aggressivität)
-        tl.fromTo(frames[i], 
-          { scale: 1.05, filter: "brightness(2)" }, 
-          { scale: 1, filter: "brightness(0.5)", duration: 0.8, ease: "power4.out" }, 
-          startTime
-        );
+      // 1. THE WIREFRAME (Zeichnen der Linien)
+      // Wir animieren den strokeDashoffset auf 0
+      paths.forEach(path => {
+        tl.to(path, { strokeDashoffset: 0, duration: 1, ease: "power1.inOut" }, 0);
       });
 
-      // --- ACT 3: THE FLASHBANG ---
-      // Nach der Stop-Motion Sequenz explodiert der Flashbang
-      const exitTime = texts.length + 0.5;
+      // 2. THE SCANNER APPEARS
+      tl.to(scanner, { opacity: 1, duration: 0.2 }, 1);
+      
+      // Das Foto wird sichtbar (damit der Clip-Path greifen kann)
+      tl.set(masterPhoto, { opacity: 1 }, 1);
 
-      tl.to(flashbang, {
-        opacity: 1,
-        scale: 250, // Massiv hochskalieren, um den Bildschirm zu füllen
-        duration: 1.5,
-        ease: "expo.in"
-      }, exitTime)
-      // Finales Bild einblenden (Gleicht die Verzerrung des scalings aus)
-      .to(finalImage, {
-        opacity: 1,
-        duration: 0.1
-      }, exitTime + 1)
-      // Text einblenden
-      .to(finalText, {
-        opacity: 1,
-        y: -20,
-        duration: 0.5,
-        ease: "power2.out"
-      }, exitTime + 1.2);
+      // 3. THE MATERIALIZATION (Clip-Path & Scanner bewegen sich synchron nach unten)
+      // Das "inset" zieht die untere Kante (100%) auf 0% auf.
+      tl.to(photoLayer, { 
+        clipPath: "inset(0% 0% 0% 0%)", 
+        ease: "none", 
+        duration: 2 
+      }, 1.2);
+      
+      // Der Scanner fährt parallel von top: 0% auf top: 100%
+      tl.fromTo(scanner, 
+        { top: "0%" }, 
+        { top: "100%", ease: "none", duration: 2 }, 
+        1.2
+      );
+
+      // 4. ATMOSPHERE RISING (Das Foto bekommt Farbe, die CAD-Elemente sterben)
+      tl.to(masterPhoto, { filter: "grayscale(0%) brightness(1.2)", duration: 1.5, ease: "power2.out" }, 2.5);
+      tl.to(cadUI, { opacity: 0, duration: 0.5 }, 2.8);
+      tl.to(svgLayer, { opacity: 0, duration: 0.5 }, 2.8);
+      tl.to(scanner, { opacity: 0, duration: 0.2 }, 3.1);
+
+      // 5. THE REVEAL (Finaler Text schiebt sich majestätisch rein)
+      tl.to(finalTxt, { opacity: 1, duration: 1, ease: "power3.out" }, 3.0);
+      
+      // Feiner Parallax-Zoom auf das fertige Bild im letzten Scroll-Prozent
+      tl.to(masterPhoto, { scale: 1.05, duration: 1, ease: "none" }, 3.0);
 
     });
   </script>
