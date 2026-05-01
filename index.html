@@ -3,27 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Choreographed Arc | Full Funnel Block</title>
+    <title>The Essential Prologue & Utility Anchor | Premium Block</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['DM Sans', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Manrope', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
                     },
                     colors: {
-                        surface: '#0f0f0f',     // Pitch Black/Charcoal
-                        ink: '#F5F2EB',         // Warm Off-White
-                        accent: '#8C3D2B',      // Deep Rust/Terracotta
-                        'surface-light': '#1A1A1A'
+                        surface: '#111111',     // Deepest charcoal
+                        ink: '#F9F8F6',         // Warm off-white
+                        panel: '#EBE7DF',       // Utility Bar Background (Cream)
+                        'panel-ink': '#1A1A1A', // Dark text for the light panel
+                        status: '#4CAF50',      // Live-Indicator Green
                     }
                 }
             }
@@ -34,44 +35,57 @@
         body {
             background-color: theme('colors.surface');
             color: theme('colors.ink');
-            overflow-x: hidden;
         }
         
-        /* Hide scrollbar */
+        /* Performance & UX Resets */
         ::-webkit-scrollbar { display: none; }
         * { -ms-overflow-style: none; scrollbar-width: none; }
-        
         .text-balance { text-wrap: balance; }
         
-        /* Lenis Native Smooth Scroll */
+        /* Lenis Smooth Scroll Setup */
         html.lenis, html.lenis body { height: auto; }
         .lenis.lenis-smooth { scroll-behavior: auto !important; }
         .lenis.lenis-smooth [data-scroll-container] { will-change: transform; }
 
-        /* Button Hover Line Effect */
-        .btn-line::after {
+        /* Pulsing Status Dot */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(76, 175, 80, 0); }
+            100% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+        }
+        .status-dot {
+            animation: pulse-ring 2s infinite;
+        }
+
+        /* Subtle Button Line */
+        .link-line {
+            position: relative;
+            display: inline-block;
+        }
+        .link-line::after {
             content: '';
             position: absolute;
-            bottom: 0; left: 0; width: 100%; height: 1px;
+            bottom: -2px; left: 0; width: 100%; height: 1px;
             background-color: currentColor;
             transform: scaleX(0);
             transform-origin: right;
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .btn-line:hover::after {
+        .link-line:hover::after {
             transform: scaleX(1);
             transform-origin: left;
         }
     </style>
 </head>
-<body class="selection:bg-accent selection:text-ink">
+<body class="selection:bg-panel selection:text-panel-ink">
 
-    <header class="fixed top-0 left-0 w-full z-50 p-6 md:p-10 flex justify-between items-center mix-blend-difference pointer-events-none">
+    <header class="absolute top-0 left-0 w-full z-50 p-6 md:p-10 flex justify-between items-center pointer-events-none">
         <div class="text-ink font-sans text-xs tracking-[0.15em] uppercase font-medium pointer-events-auto cursor-pointer">
-            L'Atelier
+            Aura Restaurant
         </div>
-        <button class="text-ink font-sans text-xs tracking-[0.15em] uppercase font-medium pointer-events-auto cursor-pointer hover:text-accent transition-colors">
-            Menu
+        <button class="flex flex-col gap-[6px] w-8 pointer-events-auto cursor-pointer group">
+            <span class="block w-full h-[1px] bg-ink transition-transform origin-right group-hover:scale-x-75"></span>
+            <span class="block w-full h-[1px] bg-ink transition-transform origin-right group-hover:scale-x-100"></span>
         </button>
     </header>
 
@@ -80,104 +94,72 @@
 
             <div class="relative w-full flex flex-col">
 
-                <section class="relative w-full min-h-[90svh] flex flex-col justify-end p-6 md:p-12 pb-24 z-10 bg-surface">
-                    <div class="max-w-6xl w-full mx-auto flex flex-col md:flex-row md:items-end justify-between gap-10">
-                        <h1 class="font-serif text-5xl md:text-8xl leading-[1.1] text-ink intro-reveal">
-                            The rhythm <br><span class="italic text-ink/70">of the evening.</span>
-                        </h1>
-                        <p class="font-sans text-sm md:text-base leading-relaxed text-ink/60 max-w-sm intro-reveal pb-2 text-balance">
-                            A curated sequence of fire, precision, and hospitality. Experience how raw elements are transformed into lasting memories.
-                        </p>
-                    </div>
-                </section>
-
-                <section id="experience-arc" class="relative w-full flex flex-col md:flex-row bg-surface border-t border-ink/10">
+                <section class="relative w-full min-h-[85svh] md:min-h-[100svh] flex flex-col justify-end overflow-hidden bg-surface">
                     
-                    <div class="hidden md:block md:w-1/2 h-screen sticky top-0 left-0 overflow-hidden bg-surface-light border-r border-ink/10">
-                        
-                        <div class="absolute inset-0 w-full h-full arc-image" data-index="0">
-                            <img src="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?q=80&w=1974&auto=format&fit=crop" 
-                                 class="w-full h-full object-cover opacity-80" alt="Chef preparing food with fire" />
-                        </div>
-                        
-                        <div class="absolute inset-0 w-full h-full arc-image opacity-0" data-index="1">
-                            <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?q=80&w=2070&auto=format&fit=crop" 
-                                 class="w-full h-full object-cover opacity-80" alt="Precision plating" />
-                        </div>
-                        
-                        <div class="absolute inset-0 w-full h-full arc-image opacity-0" data-index="2">
-                            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop" 
-                                 class="w-full h-full object-cover opacity-80" alt="Cocktails and ambiance" />
-                        </div>
-                    </div>
+                    <img id="hero-bg" 
+                         src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=2070&auto=format&fit=crop" 
+                         alt="Atmospheric interior of the restaurant" 
+                         class="absolute inset-0 w-full h-full object-cover scale-110 origin-center opacity-0" />
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-surface/90 via-surface/30 to-surface/10"></div>
 
-                    <div class="w-full md:w-1/2 flex flex-col z-10">
-                        
-                        <div class="story-step min-h-[70svh] md:min-h-screen flex flex-col justify-center p-8 md:p-20 lg:p-32" data-step="0">
-                            <div class="md:hidden w-full aspect-square mb-10 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?q=80&w=1974&auto=format&fit=crop" class="w-full h-full object-cover" alt="Preparation" />
-                            </div>
-                            <span class="font-sans text-xs tracking-[0.2em] uppercase text-accent mb-6">01 — The Craft</span>
-                            <h2 class="font-serif text-3xl md:text-5xl mb-6 text-ink">Raw elements <br>in motion.</h2>
-                            <p class="font-sans text-base text-ink/60 leading-relaxed text-balance">
-                                It begins with the heat of the charcoal and the precise cut of the knife. We source uncompromisingly and handle every ingredient with the utmost respect. The kitchen is our stage, open and transparent.
-                            </p>
-                        </div>
-
-                        <div class="story-step min-h-[70svh] md:min-h-screen flex flex-col justify-center p-8 md:p-20 lg:p-32" data-step="1">
-                            <div class="md:hidden w-full aspect-[4/5] mb-10 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover" alt="Plating" />
-                            </div>
-                            <span class="font-sans text-xs tracking-[0.2em] uppercase text-accent mb-6">02 — The Art</span>
-                            <h2 class="font-serif text-3xl md:text-5xl mb-6 text-ink">Composed <br>with intention.</h2>
-                            <p class="font-sans text-base text-ink/60 leading-relaxed text-balance">
-                                Every element on the plate serves a purpose. Textures contrast, flavors elevate one another. We plate with tweezers not for ego, but to ensure the perfect bite hits your palate exactly as imagined.
-                            </p>
-                        </div>
-
-                        <div class="story-step min-h-[70svh] md:min-h-screen flex flex-col justify-center p-8 md:p-20 lg:p-32" data-step="2">
-                            <div class="md:hidden w-full aspect-video mb-10 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover" alt="Ambiance" />
-                            </div>
-                            <span class="font-sans text-xs tracking-[0.2em] uppercase text-accent mb-6">03 — The Vibe</span>
-                            <h2 class="font-serif text-3xl md:text-5xl mb-6 text-ink">Time slows <br>down here.</h2>
-                            <p class="font-sans text-base text-ink/60 leading-relaxed text-balance">
-                                The clinking of glasses, the dimming of lights, the seamless service anticipating your needs. The final ingredient is the atmosphere we cultivate around your table.
-                            </p>
-                        </div>
-
+                    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-10 pb-32 md:pb-40 flex flex-col items-start">
+                        <span class="font-sans text-xs md:text-sm tracking-[0.2em] uppercase text-ink/70 mb-4 hero-text opacity-0 translate-y-4">
+                            Nordic Fine Dining
+                        </span>
+                        <h1 class="font-serif text-5xl md:text-8xl leading-[1.05] text-ink text-balance hero-text opacity-0 translate-y-8">
+                            Natur, auf das <br><span class="italic text-ink/80">Wesentliche</span> reduziert.
+                        </h1>
                     </div>
                 </section>
 
-                <section class="relative w-full bg-accent text-ink py-32 md:py-48 px-6 flex flex-col items-center justify-center text-center z-20">
-                    <div class="max-w-2xl mx-auto flex flex-col items-center">
-                        <span class="font-sans text-xs tracking-[0.2em] uppercase mb-8 opacity-80">Join us tonight</span>
-                        <h2 class="font-serif text-4xl md:text-7xl mb-12 leading-tight">
-                            Secure your place <br><span class="italic">at the table.</span>
-                        </h2>
+                <div class="relative z-20 w-full max-w-7xl mx-auto px-4 md:px-10 -mt-20 md:-mt-24">
+                    <div id="utility-bar" class="w-full bg-panel flex flex-col md:flex-row rounded-sm shadow-2xl opacity-0 translate-y-8 overflow-hidden">
                         
-                        <a href="#book" class="group relative flex items-center justify-center px-10 py-5 bg-ink text-surface font-sans text-sm tracking-widest uppercase font-medium overflow-hidden transition-transform hover:scale-105 duration-500 ease-out">
-                            <span class="relative z-10">Make a Reservation</span>
-                            <div class="absolute inset-0 bg-white scale-y-0 origin-bottom transition-transform duration-500 ease-out group-hover:scale-y-100"></div>
-                        </a>
-
-                        <div class="mt-16 flex flex-col md:flex-row gap-8 md:gap-16 opacity-70 font-sans text-sm">
-                            <div>
-                                <p class="uppercase tracking-widest text-xs mb-2">Location</p>
-                                <p>124 Culinary Ave,<br>Berlin, 10115</p>
-                            </div>
-                            <div>
-                                <p class="uppercase tracking-widest text-xs mb-2">Hours</p>
-                                <p>Tue — Sat<br>18:00 — 23:30</p>
+                        <div class="flex-1 border-b md:border-b-0 md:border-r border-panel-ink/10 p-5 md:p-8 flex items-center gap-4">
+                            <div class="w-2 h-2 rounded-full bg-status status-dot"></div>
+                            <div class="flex flex-col">
+                                <span class="font-sans text-[10px] tracking-widest uppercase text-panel-ink/50 mb-1">Live Status</span>
+                                <span class="font-sans text-sm md:text-base font-medium text-panel-ink">Heute geöffnet bis 23:30</span>
                             </div>
                         </div>
+
+                        <div class="flex-1 border-b md:border-b-0 md:border-r border-panel-ink/10 p-5 md:p-8 flex flex-col justify-center">
+                            <span class="font-sans text-[10px] tracking-widest uppercase text-panel-ink/50 mb-1">Location</span>
+                            <span class="font-sans text-sm md:text-base font-medium text-panel-ink">Torstraße 124, Berlin Mitte</span>
+                        </div>
+
+                        <a href="#book" class="flex-1 group relative bg-panel-ink text-ink p-6 md:p-8 flex items-center justify-between overflow-hidden transition-colors hover:bg-black">
+                            <div class="flex flex-col relative z-10">
+                                <span class="font-sans text-[10px] tracking-widest uppercase text-ink/50 mb-1">Dein Abend</span>
+                                <span class="font-serif text-xl md:text-2xl font-medium italic">Tisch reservieren</span>
+                            </div>
+                            <div class="relative z-10 w-8 h-8 rounded-full border border-ink/20 flex items-center justify-center group-hover:border-ink/50 transition-colors">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 11L11 1M11 1H3.5M11 1V8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="absolute inset-0 bg-surface scale-y-0 origin-bottom transition-transform duration-500 ease-out group-hover:scale-y-100"></div>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                <section class="w-full bg-surface pt-20 pb-32 md:pt-32 md:pb-48 px-6 md:px-10 flex flex-col items-center justify-center">
+                    <div class="max-w-2xl mx-auto text-center flex flex-col items-center">
+                        <p class="font-sans text-base md:text-lg leading-relaxed text-ink/70 text-balance mb-10 welcome-text opacity-0 translate-y-4">
+                            Wir glauben an eine Küche, die sich nicht hinter Techniken versteckt. Jedes Gericht erzählt die Geschichte unserer regionalen Produzenten — pur, kompromisslos und mit dem Feuer unseres offenen Herds vollendet.
+                        </p>
+                        <a href="#menu" class="font-sans text-xs tracking-[0.2em] uppercase text-ink link-line welcome-text opacity-0 translate-y-4 pb-1">
+                            Speisekarte entdecken
+                        </a>
                     </div>
                 </section>
 
             </div>
-            <footer class="h-64 bg-surface-light flex items-center justify-center border-t border-ink/5">
-                <span class="font-sans text-xs tracking-widest text-ink/30 uppercase">Footer Component</span>
-            </footer>
+            <div class="h-[50vh] flex items-center justify-center border-t border-ink/10">
+                <span class="font-sans text-xs tracking-[0.2em] text-ink/30 uppercase">Next Group: The Curated Tasting Journey</span>
+            </div>
 
         </div>
     </main>
@@ -208,78 +190,61 @@
         gsap.ticker.add((time)=>{ lenis.raf(time * 1000); });
         gsap.ticker.lagSmoothing(0);
 
-        // 3. Intro Animation
-        gsap.from(".intro-reveal", {
-            y: 50,
-            opacity: 0,
-            duration: 1.5,
-            stagger: 0.2,
-            ease: "power3.out",
-            delay: 0.2
+        // 3. Initial Load Sequence (The "Prologue" feeling)
+        window.addEventListener("load", () => {
+            const tl = gsap.timeline();
+
+            // Background image scales down and fades in
+            tl.to("#hero-bg", {
+                opacity: 1,
+                scale: 1,
+                duration: 2.5,
+                ease: "power3.out"
+            }, 0);
+
+            // Hero Typography reveals
+            tl.to(".hero-text", {
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                stagger: 0.2,
+                ease: "power2.out"
+            }, 0.5);
+
+            // Utility Bar slides up (The Business Anchor)
+            tl.to("#utility-bar", {
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                ease: "power3.out"
+            }, 1.2);
         });
 
-        // 4. Desktop Sticky Image Crossfade Logic
-        let mm = gsap.matchMedia();
-
-        mm.add("(min-width: 768px)", () => {
-            
-            const steps = gsap.utils.toArray('.story-step');
-            const images = gsap.utils.toArray('.arc-image');
-
-            // Text Fade In
-            steps.forEach((step, i) => {
-                gsap.from(step.children, {
-                    y: 40,
-                    opacity: 0,
-                    duration: 1,
-                    stagger: 0.1,
-                    ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: step,
-                        start: "top 70%",
-                    }
-                });
-
-                // Image Crossfade Logic
-                ScrollTrigger.create({
-                    trigger: step,
-                    start: "top center", // When text block hits center of screen
-                    end: "bottom center",
-                    onEnter: () => fadeImage(i),
-                    onEnterBack: () => fadeImage(i),
-                });
-            });
-
-            function fadeImage(index) {
-                images.forEach((img, i) => {
-                    if (i === index) {
-                        gsap.to(img, { opacity: 1, duration: 0.8, ease: "power2.inOut", zIndex: 2 });
-                        // Slight scale effect for premium feel
-                        gsap.fromTo(img.querySelector('img'), 
-                            { scale: 1.05 }, 
-                            { scale: 1, duration: 2, ease: "power2.out", overwrite: "auto" }
-                        );
-                    } else {
-                        gsap.to(img, { opacity: 0, duration: 0.8, ease: "power2.inOut", zIndex: 1 });
-                    }
-                });
+        // 4. Scroll Reveal for Host's Welcome
+        gsap.to(".welcome-text", {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".welcome-text",
+                start: "top 85%", // Triggers when top of element hits 85% of viewport height
             }
         });
-
-        mm.add("(max-width: 767px)", () => {
-            // Mobile Reveal Animations
-            const steps = gsap.utils.toArray('.story-step');
-            steps.forEach((step) => {
-                gsap.from(step, {
-                    y: 30,
-                    opacity: 0,
-                    duration: 1,
-                    ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: step,
-                        start: "top 85%",
-                    }
-                });
+        
+        // 5. Subtle Hero Parallax on Desktop
+        let mm = gsap.matchMedia();
+        mm.add("(min-width: 768px)", () => {
+            gsap.to("#hero-bg", {
+                yPercent: 15, // Moves down slightly while scrolling
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "#hero-bg",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true,
+                }
             });
         });
     </script>
