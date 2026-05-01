@@ -70,7 +70,7 @@
         }
     </style>
 </head>
-<body class="selection:bg-gold selection:text-surface">
+<body class="selection:bg-gold selection:text-surface relative">
 
     <header class="fixed top-0 left-0 w-full z-50 p-4 md:p-6 flex justify-between items-center pointer-events-none drop-shadow-xl">
         <div class="pointer-events-auto">
@@ -142,7 +142,6 @@
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24">
                         
                         <div class="flex flex-col gap-16">
-                            
                             <div class="reveal-up">
                                 <h3 class="font-display text-4xl text-heat mb-8 border-b-2 border-surface/20 pb-2">Vom Grill & Wurst</h3>
                                 <div class="flex flex-col gap-6">
@@ -202,11 +201,9 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
 
                         <div class="flex flex-col gap-16">
-                            
                             <div class="reveal-up">
                                 <h3 class="font-display text-4xl text-ink mb-8 border-b-2 border-surface/20 pb-2">Unsere Schnitzel-Klassiker</h3>
                                 <div class="flex flex-col gap-6">
@@ -270,7 +267,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -342,14 +338,100 @@
                         <div class="h-px w-12 bg-ink/30"></div>
                     </div>
                     
-                    <p class="font-sans font-bold text-xs text-ink/40 uppercase tracking-widest hover:text-ink transition-colors cursor-pointer">
-                        © 2026 Dutumer Grill | Rheine | Impressum | Datenschutz
+                    <div class="flex gap-4 md:gap-8 justify-center items-center">
+                        <button onclick="openModal('modal-impressum')" class="font-sans font-bold text-xs text-ink/60 uppercase tracking-widest hover:text-gold transition-colors">
+                            Impressum
+                        </button>
+                        <span class="text-ink/20">•</span>
+                        <button onclick="openModal('modal-datenschutz')" class="font-sans font-bold text-xs text-ink/60 uppercase tracking-widest hover:text-gold transition-colors">
+                            Datenschutz
+                        </button>
+                    </div>
+                    <p class="font-sans font-medium text-[10px] text-ink/30 uppercase tracking-widest mt-8">
+                        © 2026 Dutumer Grill | Rheine
                     </p>
                 </div>
             </footer>
 
         </div>
     </main>
+
+    <div id="modal-impressum" class="fixed inset-0 z-[100] bg-surface text-ink translate-y-full transition-transform duration-500 ease-in-out overflow-y-auto">
+        <div class="min-h-screen p-6 md:p-16 flex flex-col max-w-4xl mx-auto">
+            
+            <button onclick="closeModal('modal-impressum')" class="self-end mb-12 flex items-center gap-2 text-ink hover:text-heat transition-colors group">
+                <span class="font-display text-2xl uppercase tracking-widest">Schließen</span>
+                <svg class="w-8 h-8 group-hover:rotate-90 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <h2 class="font-display text-6xl md:text-8xl text-gold mb-8 uppercase">Impressum</h2>
+            
+            <div class="font-sans text-ink/80 space-y-6 text-sm md:text-base leading-relaxed pb-20">
+                <p><strong>Angaben gemäß § 5 TMG</strong><br>
+                Dutumer Grill<br>
+                [Max Mustermann]<br>
+                Eckener Str. 25<br>
+                48431 Rheine<br>
+                Deutschland</p>
+
+                <p><strong>Kontakt</strong><br>
+                Telefon: +49 5971 14347<br>
+                E-Mail: [info@dutumer-grill.de]</p>
+
+                <p><strong>Umsatzsteuer-ID</strong><br>
+                Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>
+                [DE 999 999 999]</p>
+
+                <p><strong>Verbraucherstreitbeilegung/Universalschlichtungsstelle</strong><br>
+                Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+                <p><strong>Haftung für Inhalte</strong><br>
+                Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-datenschutz" class="fixed inset-0 z-[100] bg-surface text-ink translate-y-full transition-transform duration-500 ease-in-out overflow-y-auto">
+        <div class="min-h-screen p-6 md:p-16 flex flex-col max-w-4xl mx-auto">
+            
+            <button onclick="closeModal('modal-datenschutz')" class="self-end mb-12 flex items-center gap-2 text-ink hover:text-heat transition-colors group">
+                <span class="font-display text-2xl uppercase tracking-widest">Schließen</span>
+                <svg class="w-8 h-8 group-hover:rotate-90 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <h2 class="font-display text-6xl md:text-8xl text-gold mb-8 uppercase">Datenschutz</h2>
+            
+            <div class="font-sans text-ink/80 space-y-6 text-sm md:text-base leading-relaxed pb-20">
+                <h3 class="text-xl text-ink font-bold">1. Datenschutz auf einen Blick</h3>
+                <p><strong>Allgemeine Hinweise</strong><br>
+                Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+
+                <h3 class="text-xl text-ink font-bold mt-8">2. Hosting</h3>
+                <p>Wir hosten die Inhalte unserer Website bei folgendem Anbieter: [Name des Hosters, z.B. Netlify / Vercel / Strato]. Die Erfassung und Verarbeitung der Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website.</p>
+
+                <h3 class="text-xl text-ink font-bold mt-8">3. Allgemeine Hinweise und Pflichtinformationen</h3>
+                <p><strong>Datenschutz</strong><br>
+                Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+                <p>Wenn Sie diese Website benutzen, werden verschiedene personenbezogene Daten erhoben. Die vorliegende Datenschutzerklärung erläutert, welche Daten wir erheben und wofür wir sie nutzen.</p>
+
+                <p><strong>Hinweis zur verantwortlichen Stelle</strong><br>
+                Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br>
+                Dutumer Grill<br>
+                [Max Mustermann]<br>
+                Eckener Str. 25<br>
+                48431 Rheine<br>
+                Telefon: +49 5971 14347<br>
+                E-Mail: [info@dutumer-grill.de]</p>
+
+                <h3 class="text-xl text-ink font-bold mt-8">4. Datenerfassung auf dieser Website</h3>
+                <p><strong>Server-Log-Dateien</strong><br>
+                Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind: Browsertyp und Browserversion, verwendetes Betriebssystem, Referrer URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage, IP-Adresse. Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen.</p>
+                
+                <p><strong>Cookies</strong><br>
+                Unsere Internetseiten verwenden keine Tracking-Cookies für Werbezwecke. Lediglich technisch notwendige Session-Daten zur Gewährleistung der Funktionalität können lokal in Ihrem Browser verarbeitet werden.</p>
+            </div>
+        </div>
+    </div>
 
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -402,11 +484,28 @@
                 ease: "power3.out",
                 scrollTrigger: {
                     trigger: el,
-                    start: "top 90%", // Startet, wenn das Element zu 90% im Viewport ist
+                    start: "top 90%",
                     toggleActions: "play none none reverse"
                 }
             });
         });
+
+        // 5. Modal Logic (Impressum / Datenschutz)
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('translate-y-full');
+            // Stoppt das Scrollen der Hintergrund-Seite
+            lenis.stop();
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('translate-y-full');
+            // Aktiviert das Scrollen der Seite wieder
+            lenis.start();
+            document.body.style.overflow = '';
+        }
     </script>
 </body>
 </html>
