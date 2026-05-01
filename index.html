@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glut & Gold | Ehrliche Fritten & Craft Grill</title>
+    <title>Dutumer Grill | Rheine | Schnitzel, Burger & Fritten</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -74,10 +74,10 @@
 
     <header class="fixed top-0 left-0 w-full z-50 p-4 md:p-6 flex justify-between items-center mix-blend-difference pointer-events-none">
         <div class="text-ink font-display text-2xl md:text-3xl tracking-wide pointer-events-auto">
-            GLUT & GOLD
+            DUTUMER GRILL
         </div>
         <a href="#location" class="pointer-events-auto bg-ink text-surface font-sans font-bold text-xs uppercase px-4 py-2 rounded-full hover:bg-gold transition-colors">
-            Anfahrt
+            Anfahrt & Kontakt
         </a>
     </header>
 
@@ -88,19 +88,19 @@
                 
                 <div class="absolute inset-0 overflow-hidden">
                     <img src="https://images.unsplash.com/photo-1598514982205-f36b96d1e8d4?q=80&w=2070&auto=format&fit=crop" 
-                         alt="Frische Pommes Frites" 
+                         alt="Frische Pommes und Grillgerichte" 
                          class="w-full h-full object-cover opacity-60 scale-105" id="hero-img" />
                     <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
                 </div>
 
-                <div class="relative z-10 px-4 md:px-8 pb-32 max-w-7xl mx-auto w-full">
+                <div class="relative z-10 px-4 md:px-8 pb-40 md:pb-32 max-w-7xl mx-auto w-full">
                     <h1 class="font-display text-7xl md:text-[12rem] leading-[0.85] text-ink uppercase tracking-tight mb-4 text-glow reveal-up">
-                        Fritten.<br>
-                        <span class="text-gold">Feuer.</span><br>
-                        Feierabend.
+                        Kult.<br>
+                        <span class="text-gold">Schnitzel.</span><br>
+                        Rheine.
                     </h1>
                     <p class="font-sans font-medium text-lg md:text-2xl text-ink/80 max-w-xl reveal-up">
-                        Kein Schnickschnack. Nur doppelt frittierte belgische Pommes, echte Berliner Currywurst und eiskaltes Bier.
+                        Dein Dutumer Grill. Riesige Schnitzelauswahl, echte Currywurst und legendäre Burger. Ehrlich und lecker.
                     </p>
                 </div>
 
@@ -110,15 +110,15 @@
                         <div class="flex items-center gap-3">
                             <div class="w-3 h-3 status-dot"></div>
                             <div>
-                                <p class="font-sans font-bold text-sm uppercase text-surface/50">Live Status</p>
-                                <p class="font-sans font-bold text-lg md:text-xl">Geöffnet bis 23:00</p>
+                                <p class="font-sans font-bold text-sm uppercase text-surface/50">Heute Geöffnet</p>
+                                <p class="font-sans font-bold text-lg md:text-xl">Mittag & Abendessen</p>
                             </div>
                         </div>
 
                         <div class="hidden md:block w-px h-12 bg-surface/10"></div>
                         <div>
                             <p class="font-sans font-bold text-sm uppercase text-surface/50">Standort</p>
-                            <p class="font-sans font-bold text-lg md:text-xl">Kreuzberg, Oranienstraße 42</p>
+                            <p class="font-sans font-bold text-lg md:text-xl">Eckener Str. 25, Rheine</p>
                         </div>
 
                         <div class="w-full md:w-auto mt-2 md:mt-0">
@@ -131,75 +131,147 @@
             </section>
 
             <section id="menu" class="relative w-full bg-surface pt-40 pb-20 md:pt-48 md:pb-32 px-4 md:px-8">
-                <div class="max-w-5xl mx-auto">
+                <div class="max-w-7xl mx-auto">
                     
                     <div class="mb-16 md:mb-24 text-center reveal-up">
                         <h2 class="font-display text-5xl md:text-8xl text-ink">Das Menü</h2>
                         <div class="w-24 h-2 bg-heat mx-auto mt-4"></div>
+                        <p class="mt-4 text-ink/60 font-sans">Auszug aus unserer Karte (Alle Gerichte auch außer Haus)</p>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24">
                         
-                        <div class="reveal-up">
-                            <h3 class="font-display text-4xl text-gold mb-8 border-b-2 border-surface/20 pb-2">Die Fritten</h3>
+                        <div class="flex flex-col gap-16">
                             
-                            <div class="flex flex-col gap-6">
-                                <div class="group cursor-pointer">
-                                    <div class="flex justify-between items-baseline border-b border-ink/10 pb-2 mb-2">
-                                        <h4 class="font-sans font-bold text-xl md:text-2xl text-ink group-hover:text-gold transition-colors">Klassik Fritten</h4>
-                                        <span class="font-sans font-bold text-xl text-ink/80">4.50 €</span>
+                            <div class="reveal-up">
+                                <h3 class="font-display text-4xl text-heat mb-8 border-b-2 border-surface/20 pb-2">Vom Grill & Wurst</h3>
+                                <div class="flex flex-col gap-6">
+                                    <div class="group cursor-pointer">
+                                        <div class="flex justify-between items-baseline border-b border-ink/10 pb-2 mb-1">
+                                            <h4 class="font-sans font-bold text-xl md:text-2xl text-ink group-hover:text-heat transition-colors">Curry-Bratwurst</h4>
+                                            <span class="font-sans font-bold text-xl text-ink/80">3,40 €</span>
+                                        </div>
                                     </div>
-                                    <p class="font-sans text-sm text-ink/60">Doppelt frittiert, Meersalz. Puristisch gut.</p>
-                                </div>
-
-                                <div class="group cursor-pointer">
-                                    <div class="flex justify-between items-baseline border-b border-ink/10 pb-2 mb-2">
-                                        <h4 class="font-sans font-bold text-xl md:text-2xl text-ink group-hover:text-gold transition-colors">Trüffel Parmesan</h4>
-                                        <span class="font-sans font-bold text-xl text-ink/80">7.50 €</span>
+                                    <div class="group cursor-pointer">
+                                        <div class="flex justify-between items-baseline border-b border-ink/10 pb-2 mb-1">
+                                            <h4 class="font-sans font-bold text-xl md:text-2xl text-ink group-hover:text-heat transition-colors">Jäger- oder Zwiebel-Bratwurst</h4>
+                                            <span class="font-sans font-bold text-xl text-ink/80">3,60 €</span>
+                                        </div>
                                     </div>
-                                    <p class="font-sans text-sm text-ink/60">Trüffel-Mayo, frischer Parmesan, Petersilie.</p>
-                                </div>
-
-                                <div class="group cursor-pointer">
-                                    <div class="flex justify-between items-baseline border-b border-ink/10 pb-2 mb-2">
-                                        <h4 class="font-sans font-bold text-xl md:text-2xl text-ink group-hover:text-gold transition-colors">Chili Cheese</h4>
-                                        <span class="font-sans font-bold text-xl text-ink/80">6.80 €</span>
+                                    <div class="group cursor-pointer">
+                                        <div class="flex justify-between items-baseline border-b border-ink/10 pb-2 mb-1">
+                                            <h4 class="font-sans font-bold text-xl md:text-2xl text-ink group-hover:text-heat transition-colors">1/2 Hähnchen v. Grill</h4>
+                                            <span class="font-sans font-bold text-xl text-ink/80">4,90 €</span>
+                                        </div>
                                     </div>
-                                    <p class="font-sans text-sm text-ink/60">Hausgemachte Cheddar-Sauce, Jalapeños, Röstzwiebeln.</p>
+                                    <div class="group cursor-pointer">
+                                        <div class="flex justify-between items-baseline border-b border-ink/10 pb-2 mb-1">
+                                            <h4 class="font-sans font-bold text-xl md:text-2xl text-ink group-hover:text-heat transition-colors">Frikadelle</h4>
+                                            <span class="font-sans font-bold text-xl text-ink/80">2,60 €</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="reveal-up">
-                            <h3 class="font-display text-4xl text-heat mb-8 border-b-2 border-surface/20 pb-2">Vom Grill</h3>
-                            
-                            <div class="flex flex-col gap-6">
-                                <div class="group cursor-pointer">
-                                    <div class="flex justify-between items-baseline border-b border-ink/10 pb-2 mb-2">
-                                        <h4 class="font-sans font-bold text-xl md:text-2xl text-ink group-hover:text-heat transition-colors">Berliner Currywurst</h4>
-                                        <span class="font-sans font-bold text-xl text-ink/80">5.00 €</span>
+                            <div class="reveal-up">
+                                <h3 class="font-display text-4xl text-gold mb-8 border-b-2 border-surface/20 pb-2">Fritten & Beilagen</h3>
+                                <div class="flex flex-col gap-6">
+                                    <div class="group cursor-pointer">
+                                        <div class="flex justify-between items-baseline border-b border-ink/10 pb-2 mb-1">
+                                            <h4 class="font-sans font-bold text-xl md:text-2xl text-ink group-hover:text-gold transition-colors">Pommes frites</h4>
+                                            <span class="font-sans font-bold text-xl text-ink/80">2,70 €</span>
+                                        </div>
                                     </div>
-                                    <p class="font-sans text-sm text-ink/60">Mit oder ohne Darm. Hausgemachte Frucht-Curry-Sauce.</p>
-                                </div>
-
-                                <div class="group cursor-pointer">
-                                    <div class="flex justify-between items-baseline border-b border-ink/10 pb-2 mb-2">
-                                        <h4 class="font-sans font-bold text-xl md:text-2xl text-ink group-hover:text-heat transition-colors">Manta Platte</h4>
-                                        <span class="font-sans font-bold text-xl text-ink/80">8.90 €</span>
+                                    <div class="group cursor-pointer">
+                                        <div class="flex justify-between items-baseline border-b border-ink/10 pb-2 mb-1">
+                                            <h4 class="font-sans font-bold text-xl md:text-2xl text-ink group-hover:text-gold transition-colors">Pommes doppelte Portion</h4>
+                                            <span class="font-sans font-bold text-xl text-ink/80">4,90 €</span>
+                                        </div>
                                     </div>
-                                    <p class="font-sans text-sm text-ink/60">Currywurst + Klassik Fritten + Mayo. Der Endgegner.</p>
-                                </div>
-
-                                <div class="group cursor-pointer">
-                                    <div class="flex justify-between items-baseline border-b border-ink/10 pb-2 mb-2">
-                                        <h4 class="font-sans font-bold text-xl md:text-2xl text-ink group-hover:text-heat transition-colors">Veganer Vulkan</h4>
-                                        <span class="font-sans font-bold text-xl text-ink/80">6.50 €</span>
+                                    <div class="group cursor-pointer">
+                                        <div class="flex justify-between items-baseline border-b border-ink/10 pb-2 mb-1">
+                                            <h4 class="font-sans font-bold text-xl md:text-2xl text-ink group-hover:text-gold transition-colors">Pommes spezial</h4>
+                                            <span class="font-sans font-bold text-xl text-ink/80">3,70 €</span>
+                                        </div>
                                     </div>
-                                    <p class="font-sans text-sm text-ink/60">Seitan-Wurst, scharfe Salsa, vegane Mayo.</p>
+                                    <div class="group cursor-pointer">
+                                        <div class="flex justify-between items-baseline border-b border-ink/10 pb-2 mb-1">
+                                            <h4 class="font-sans font-bold text-xl md:text-2xl text-ink group-hover:text-gold transition-colors">Röstikos</h4>
+                                            <span class="font-sans font-bold text-xl text-ink/80">St. 0,80 €</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
 
+                        <div class="flex flex-col gap-16">
+                            
+                            <div class="reveal-up">
+                                <h3 class="font-display text-4xl text-ink mb-8 border-b-2 border-surface/20 pb-2">Unsere Schnitzel-Klassiker</h3>
+                                <div class="flex flex-col gap-6">
+                                    <div class="group cursor-pointer">
+                                        <div class="flex justify-between items-baseline border-b border-ink/10 pb-2 mb-1">
+                                            <h4 class="font-sans font-bold text-xl md:text-2xl text-ink group-hover:text-white transition-colors">Jäger-Schnitzel</h4>
+                                            <span class="font-sans font-bold text-xl text-ink/80">8,20 €</span>
+                                        </div>
+                                    </div>
+                                    <div class="group cursor-pointer">
+                                        <div class="flex justify-between items-baseline border-b border-ink/10 pb-2 mb-1">
+                                            <h4 class="font-sans font-bold text-xl md:text-2xl text-ink group-hover:text-white transition-colors">Westfälisches Schnitzel</h4>
+                                            <span class="font-sans font-bold text-xl text-ink/80">8,20 €</span>
+                                        </div>
+                                        <p class="font-sans text-sm text-ink/60">mit Champignons, Spargel und Hollandaise</p>
+                                    </div>
+                                    <div class="group cursor-pointer">
+                                        <div class="flex justify-between items-baseline border-b border-ink/10 pb-2 mb-1">
+                                            <h4 class="font-sans font-bold text-xl md:text-2xl text-ink group-hover:text-white transition-colors">Schnitzelspezial</h4>
+                                            <span class="font-sans font-bold text-xl text-ink/80">8,20 €</span>
+                                        </div>
+                                        <p class="font-sans text-sm text-ink/60">mit geschmorten Zwiebeln, Tomaten und Käse überbacken</p>
+                                    </div>
+                                    <div class="group cursor-pointer">
+                                        <div class="flex justify-between items-baseline border-b border-ink/10 pb-2 mb-1">
+                                            <h4 class="font-sans font-bold text-xl md:text-2xl text-ink group-hover:text-white transition-colors">Hawaiischnitzel</h4>
+                                            <span class="font-sans font-bold text-xl text-ink/80">8,20 €</span>
+                                        </div>
+                                        <p class="font-sans text-sm text-ink/60">mit Ananas, Käse, Preiselbeeren überbacken</p>
+                                    </div>
+                                    <div class="group cursor-pointer">
+                                        <div class="flex justify-between items-baseline border-b border-ink/10 pb-2 mb-1">
+                                            <h4 class="font-sans font-bold text-xl md:text-2xl text-ink group-hover:text-white transition-colors">Räuberschnitzel</h4>
+                                            <span class="font-sans font-bold text-xl text-ink/80">8,20 €</span>
+                                        </div>
+                                        <p class="font-sans text-sm text-ink/60">Halb Jäger- und Zigeunersauce</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="reveal-up">
+                                <h3 class="font-display text-4xl text-ink mb-8 border-b-2 border-surface/20 pb-2">Burger</h3>
+                                <div class="flex flex-col gap-6">
+                                    <div class="group cursor-pointer">
+                                        <div class="flex justify-between items-baseline border-b border-ink/10 pb-2 mb-1">
+                                            <h4 class="font-sans font-bold text-xl md:text-2xl text-ink group-hover:text-gold transition-colors">Juppie Burger</h4>
+                                            <span class="font-sans font-bold text-xl text-ink/80">5,20 €</span>
+                                        </div>
+                                    </div>
+                                    <div class="group cursor-pointer">
+                                        <div class="flex justify-between items-baseline border-b border-ink/10 pb-2 mb-1">
+                                            <h4 class="font-sans font-bold text-xl md:text-2xl text-ink group-hover:text-gold transition-colors">Rheinenser</h4>
+                                            <span class="font-sans font-bold text-xl text-ink/80">4,60 €</span>
+                                        </div>
+                                    </div>
+                                    <div class="group cursor-pointer">
+                                        <div class="flex justify-between items-baseline border-b border-ink/10 pb-2 mb-1">
+                                            <h4 class="font-sans font-bold text-xl md:text-2xl text-ink group-hover:text-gold transition-colors">Cheeseburger</h4>
+                                            <span class="font-sans font-bold text-xl text-ink/80">3,90 €</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </section>
@@ -209,26 +281,33 @@
                     
                     <div class="w-full md:w-1/2">
                         <h2 class="font-display text-7xl md:text-[8rem] leading-none text-surface mb-6 uppercase tracking-tight">
-                            Komm <br>Vorbei.
+                            Hier <br>Findest du uns.
                         </h2>
                         <p class="font-sans font-bold text-xl md:text-2xl mb-8 max-w-md">
-                            Keine Reservierung. Einfach rumkommen, bestellen und am Stehtisch glücklich werden.
+                            Komm rum oder ruf an für Bestellungen außer Haus.
                         </p>
                         
-                        <div class="flex flex-col gap-4 mb-8">
+                        <div class="flex flex-col gap-6 mb-10">
                             <div>
                                 <p class="font-sans font-bold uppercase text-surface/60 text-sm">Adresse</p>
-                                <p class="font-sans font-bold text-2xl">Oranienstraße 42<br>10999 Berlin</p>
+                                <p class="font-sans font-bold text-2xl">Eckener Str. 25<br>48431 Rheine, Deutschland</p>
                             </div>
                             <div>
-                                <p class="font-sans font-bold uppercase text-surface/60 text-sm mt-4">Öffnungszeiten</p>
-                                <p class="font-sans font-bold text-xl">Mo - Do: 11:30 - 22:00</p>
-                                <p class="font-sans font-bold text-xl">Fr - Sa: 11:30 - 02:00</p>
-                                <p class="font-sans font-bold text-xl">So: Kater-Ruhetag</p>
+                                <p class="font-sans font-bold uppercase text-surface/60 text-sm">Telefon & Reservierung</p>
+                                <a href="tel:+49597114347" class="font-sans font-bold text-3xl hover:text-heat transition-colors">
+                                    +49 5971 14347
+                                </a>
+                            </div>
+                            <div class="mt-2">
+                                <p class="font-sans font-bold uppercase text-surface/60 text-sm mb-2">Öffnungszeiten</p>
+                                <ul class="font-sans font-bold text-lg flex flex-col gap-1">
+                                    <li class="flex justify-between max-w-sm border-b border-surface/20 pb-1"><span>Montag - Samstag</span> <span>11:00–14:00, 16:00–21:00</span></li>
+                                    <li class="flex justify-between max-w-sm border-b border-surface/20 pb-1 pt-1"><span>Sonntag</span> <span>16:00–21:00</span></li>
+                                </ul>
                             </div>
                         </div>
 
-                        <a href="https://maps.google.com" target="_blank" class="inline-block bg-surface text-ink font-display text-3xl px-10 py-4 rounded-md hover:bg-heat hover:text-ink transition-colors btn-brutal">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Dutumer+Grill+Eckener+Str.+25+48431+Rheine" target="_blank" class="inline-block bg-surface text-ink font-display text-3xl px-10 py-4 rounded-md hover:bg-heat hover:text-ink transition-colors btn-brutal">
                             Route auf Google Maps
                         </a>
                     </div>
@@ -244,7 +323,7 @@
 
             <footer class="bg-surface py-8 text-center border-t border-ink/10">
                 <p class="font-sans font-bold text-sm text-ink/40 uppercase tracking-widest">
-                    &copy; 2026 Glut & Gold | Impressum | Datenschutz
+                    © 2026 Dutumer Grill | Rheine | Impressum | Datenschutz
                 </p>
             </footer>
 
