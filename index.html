@@ -3,28 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Essential Prologue & Utility Anchor | Premium Block</title>
+    <title>The Curated Tasting Journey | Midpage Block</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Manrope', 'sans-serif'],
-                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['DM Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
                     },
                     colors: {
-                        surface: '#111111',     // Deepest charcoal
-                        ink: '#F9F8F6',         // Warm off-white
-                        panel: '#EBE7DF',       // Utility Bar Background (Cream)
-                        'panel-ink': '#1A1A1A', // Dark text for the light panel
-                        status: '#4CAF50',      // Live-Indicator Green
+                        surface: '#F7F5F0',     // Editorial warm paper
+                        ink: '#1A1A1A',         // Soft black for typography
+                        accent: '#8B4513',      // Subtle rust/cognac for highlights
+                        borderline: '#D1CFC9'   // Subtle border color
                     }
                 }
             }
@@ -35,130 +34,216 @@
         body {
             background-color: theme('colors.surface');
             color: theme('colors.ink');
+            overflow-x: hidden;
         }
         
-        /* Performance & UX Resets */
         ::-webkit-scrollbar { display: none; }
         * { -ms-overflow-style: none; scrollbar-width: none; }
         .text-balance { text-wrap: balance; }
         
-        /* Lenis Smooth Scroll Setup */
+        /* Lenis Smooth Scroll */
         html.lenis, html.lenis body { height: auto; }
         .lenis.lenis-smooth { scroll-behavior: auto !important; }
         .lenis.lenis-smooth [data-scroll-container] { will-change: transform; }
 
-        /* Pulsing Status Dot */
-        @keyframes pulse-ring {
-            0% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(76, 175, 80, 0); }
-            100% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+        /* Premium Accordion Styling via CSS Grid */
+        details > summary {
+            list-style: none;
+            cursor: pointer;
         }
-        .status-dot {
-            animation: pulse-ring 2s infinite;
+        details > summary::-webkit-details-marker {
+            display: none;
         }
-
-        /* Subtle Button Line */
-        .link-line {
-            position: relative;
-            display: inline-block;
+        
+        /* The CSS Grid 0fr to 1fr hack for smooth details transition */
+        .accordion-content-wrapper {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .link-line::after {
-            content: '';
-            position: absolute;
-            bottom: -2px; left: 0; width: 100%; height: 1px;
-            background-color: currentColor;
-            transform: scaleX(0);
-            transform-origin: right;
+        .accordion-content-inner {
+            overflow: hidden;
+        }
+        details[open] .accordion-content-wrapper {
+            grid-template-rows: 1fr;
+        }
+        
+        /* Plus/Minus Icon Animation */
+        .accordion-icon {
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .link-line:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
+        details[open] summary .accordion-icon {
+            transform: rotate(45deg);
+        }
+
+        /* Outline Button Hover */
+        .btn-outline {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-outline::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: theme('colors.ink');
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 0;
+        }
+        .btn-outline:hover::before {
+            transform: translateY(0);
+        }
+        .btn-outline span {
+            position: relative;
+            z-index: 1;
+            transition: color 0.4s ease;
+        }
+        .btn-outline:hover span {
+            color: theme('colors.surface');
         }
     </style>
 </head>
-<body class="selection:bg-panel selection:text-panel-ink">
-
-    <header class="absolute top-0 left-0 w-full z-50 p-6 md:p-10 flex justify-between items-center pointer-events-none">
-        <div class="text-ink font-sans text-xs tracking-[0.15em] uppercase font-medium pointer-events-auto cursor-pointer">
-            Aura Restaurant
-        </div>
-        <button class="flex flex-col gap-[6px] w-8 pointer-events-auto cursor-pointer group">
-            <span class="block w-full h-[1px] bg-ink transition-transform origin-right group-hover:scale-x-75"></span>
-            <span class="block w-full h-[1px] bg-ink transition-transform origin-right group-hover:scale-x-100"></span>
-        </button>
-    </header>
+<body class="selection:bg-accent selection:text-surface">
 
     <main id="smooth-wrapper">
         <div id="smooth-content">
 
-            <div class="relative w-full flex flex-col">
-
-                <section class="relative w-full min-h-[85svh] md:min-h-[100svh] flex flex-col justify-end overflow-hidden bg-surface">
-                    
-                    <img id="hero-bg" 
-                         src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?q=80&w=2070&auto=format&fit=crop" 
-                         alt="Atmospheric interior of the restaurant" 
-                         class="absolute inset-0 w-full h-full object-cover scale-110 origin-center opacity-0" />
-                    
-                    <div class="absolute inset-0 bg-gradient-to-t from-surface/90 via-surface/30 to-surface/10"></div>
-
-                    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-10 pb-32 md:pb-40 flex flex-col items-start">
-                        <span class="font-sans text-xs md:text-sm tracking-[0.2em] uppercase text-ink/70 mb-4 hero-text opacity-0 translate-y-4">
-                            Nordic Fine Dining
-                        </span>
-                        <h1 class="font-serif text-5xl md:text-8xl leading-[1.05] text-ink text-balance hero-text opacity-0 translate-y-8">
-                            Natur, auf das <br><span class="italic text-ink/80">Wesentliche</span> reduziert.
-                        </h1>
-                    </div>
-                </section>
-
-                <div class="relative z-20 w-full max-w-7xl mx-auto px-4 md:px-10 -mt-20 md:-mt-24">
-                    <div id="utility-bar" class="w-full bg-panel flex flex-col md:flex-row rounded-sm shadow-2xl opacity-0 translate-y-8 overflow-hidden">
-                        
-                        <div class="flex-1 border-b md:border-b-0 md:border-r border-panel-ink/10 p-5 md:p-8 flex items-center gap-4">
-                            <div class="w-2 h-2 rounded-full bg-status status-dot"></div>
-                            <div class="flex flex-col">
-                                <span class="font-sans text-[10px] tracking-widest uppercase text-panel-ink/50 mb-1">Live Status</span>
-                                <span class="font-sans text-sm md:text-base font-medium text-panel-ink">Heute geöffnet bis 23:30</span>
-                            </div>
-                        </div>
-
-                        <div class="flex-1 border-b md:border-b-0 md:border-r border-panel-ink/10 p-5 md:p-8 flex flex-col justify-center">
-                            <span class="font-sans text-[10px] tracking-widest uppercase text-panel-ink/50 mb-1">Location</span>
-                            <span class="font-sans text-sm md:text-base font-medium text-panel-ink">Torstraße 124, Berlin Mitte</span>
-                        </div>
-
-                        <a href="#book" class="flex-1 group relative bg-panel-ink text-ink p-6 md:p-8 flex items-center justify-between overflow-hidden transition-colors hover:bg-black">
-                            <div class="flex flex-col relative z-10">
-                                <span class="font-sans text-[10px] tracking-widest uppercase text-ink/50 mb-1">Dein Abend</span>
-                                <span class="font-serif text-xl md:text-2xl font-medium italic">Tisch reservieren</span>
-                            </div>
-                            <div class="relative z-10 w-8 h-8 rounded-full border border-ink/20 flex items-center justify-center group-hover:border-ink/50 transition-colors">
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1 11L11 1M11 1H3.5M11 1V8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                            <div class="absolute inset-0 bg-surface scale-y-0 origin-bottom transition-transform duration-500 ease-out group-hover:scale-y-100"></div>
-                        </a>
-                        
-                    </div>
-                </div>
-
-                <section class="w-full bg-surface pt-20 pb-32 md:pt-32 md:pb-48 px-6 md:px-10 flex flex-col items-center justify-center">
-                    <div class="max-w-2xl mx-auto text-center flex flex-col items-center">
-                        <p class="font-sans text-base md:text-lg leading-relaxed text-ink/70 text-balance mb-10 welcome-text opacity-0 translate-y-4">
-                            Wir glauben an eine Küche, die sich nicht hinter Techniken versteckt. Jedes Gericht erzählt die Geschichte unserer regionalen Produzenten — pur, kompromisslos und mit dem Feuer unseres offenen Herds vollendet.
-                        </p>
-                        <a href="#menu" class="font-sans text-xs tracking-[0.2em] uppercase text-ink link-line welcome-text opacity-0 translate-y-4 pb-1">
-                            Speisekarte entdecken
-                        </a>
-                    </div>
-                </section>
-
+            <div class="h-[50vh] bg-ink text-surface flex items-center justify-center">
+                <span class="font-sans text-xs tracking-widest uppercase opacity-50">Previous Dark Section (Hero)</span>
             </div>
-            <div class="h-[50vh] flex items-center justify-center border-t border-ink/10">
-                <span class="font-sans text-xs tracking-[0.2em] text-ink/30 uppercase">Next Group: The Curated Tasting Journey</span>
+
+            <section class="relative w-full px-6 md:px-12 py-20 md:py-32 max-w-[1600px] mx-auto z-10 bg-surface">
+                
+                <div class="flex flex-col md:flex-row gap-16 md:gap-24 relative">
+
+                    <div class="w-full md:w-5/12 flex flex-col justify-between md:sticky md:top-0 md:h-[100svh] md:py-32">
+                        
+                        <div class="flex flex-col items-start reveal-fade">
+                            <span class="font-sans text-[10px] md:text-xs tracking-[0.2em] uppercase text-accent mb-6 font-medium">
+                                Philosophie & Herkunft
+                            </span>
+                            <h2 class="font-serif text-4xl md:text-6xl leading-[1.1] mb-8 text-balance">
+                                Eine Reise durch <br><span class="italic">die Saison.</span>
+                            </h2>
+                            <p class="font-sans text-base md:text-lg text-ink/70 leading-relaxed max-w-md text-balance">
+                                Wir lassen uns von dem leiten, was die Natur an diesem bestimmten Tag bietet. Jedes Gericht ist ein kuratierter Moment, entworfen, um die reinen Aromen unserer Regionalkultur zu zelebrieren.
+                            </p>
+                        </div>
+
+                        <div class="hidden md:block mt-16 reveal-fade">
+                            <a href="#full-menu" class="btn-outline inline-flex items-center justify-center border border-ink py-4 px-10 rounded-full font-sans text-xs tracking-[0.15em] uppercase font-medium">
+                                <span>Komplette Speisekarte</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-7/12 flex flex-col pt-0 md:py-32">
+
+                        <div class="flex flex-col gap-20 md:gap-40 mb-32">
+                            
+                            <div class="w-full flex flex-col signature-item">
+                                <div class="w-full aspect-square md:aspect-[4/5] overflow-hidden mb-6 bg-borderline/20 relative">
+                                    <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?q=80&w=2058&auto=format&fit=crop" 
+                                         alt="Geflämmter Saibling" 
+                                         class="parallax-img absolute inset-0 w-full h-[120%] object-cover -top-[10%]" />
+                                </div>
+                                <div class="flex justify-between items-baseline gap-4">
+                                    <h3 class="font-serif text-2xl md:text-3xl text-ink">Geflämmter Saibling</h3>
+                                    <span class="font-sans text-sm text-ink/50 border-b border-ink/20">32 €</span>
+                                </div>
+                                <p class="font-sans text-sm text-ink/60 mt-2">Kohlrabi / Buttermilch / Dillöl / Kaviar</p>
+                            </div>
+
+                            <div class="w-full md:w-4/5 md:ml-auto flex flex-col signature-item">
+                                <div class="w-full aspect-square md:aspect-[4/5] overflow-hidden mb-6 bg-borderline/20 relative">
+                                    <img src="https://images.unsplash.com/photo-1544025162-811114215f7f?q=80&w=1974&auto=format&fit=crop" 
+                                         alt="Dry Aged Ente" 
+                                         class="parallax-img absolute inset-0 w-full h-[120%] object-cover -top-[10%]" />
+                                </div>
+                                <div class="flex justify-between items-baseline gap-4">
+                                    <h3 class="font-serif text-2xl md:text-3xl text-ink">Dry Aged Brust</h3>
+                                    <span class="font-sans text-sm text-ink/50 border-b border-ink/20">46 €</span>
+                                </div>
+                                <p class="font-sans text-sm text-ink/60 mt-2">Schwarze Walnuss / Fermentierte Beeren / Jus</p>
+                            </div>
+
+                        </div>
+
+                        <div class="w-full flex flex-col reveal-fade">
+                            <span class="font-sans text-[10px] tracking-[0.2em] uppercase text-ink/50 mb-8 border-b border-borderline pb-4 block">
+                                Auszug aus der Karte
+                            </span>
+
+                            <details class="w-full border-b border-borderline group" name="menu-accordion">
+                                <summary class="w-full py-6 flex justify-between items-center focus:outline-none min-h-[48px]">
+                                    <h3 class="font-serif text-xl md:text-2xl text-ink group-hover:text-accent transition-colors">Der Auftakt</h3>
+                                    <div class="w-6 h-6 flex items-center justify-center relative accordion-icon text-ink/40">
+                                        <span class="absolute w-full h-[1px] bg-currentColor"></span>
+                                        <span class="absolute h-full w-[1px] bg-currentColor rotate-90"></span>
+                                    </div>
+                                </summary>
+                                <div class="accordion-content-wrapper">
+                                    <div class="accordion-content-inner">
+                                        <div class="pb-8 pt-2 flex flex-col gap-4 font-sans text-sm text-ink/70">
+                                            <div class="flex justify-between"><span>Brot & Hausgemachte Koji-Butter</span> <span>8</span></div>
+                                            <div class="flex justify-between"><span>Austern "Fine de Claire" (3 Stk)</span> <span>16</span></div>
+                                            <div class="flex justify-between"><span>Beef Tatar / Eigelbcreme / Sauerteig</span> <span>22</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </details>
+
+                            <details class="w-full border-b border-borderline group" name="menu-accordion">
+                                <summary class="w-full py-6 flex justify-between items-center focus:outline-none min-h-[48px]">
+                                    <h3 class="font-serif text-xl md:text-2xl text-ink group-hover:text-accent transition-colors">Das Hauptwerk</h3>
+                                    <div class="w-6 h-6 flex items-center justify-center relative accordion-icon text-ink/40">
+                                        <span class="absolute w-full h-[1px] bg-currentColor"></span>
+                                        <span class="absolute h-full w-[1px] bg-currentColor rotate-90"></span>
+                                    </div>
+                                </summary>
+                                <div class="accordion-content-wrapper">
+                                    <div class="accordion-content-inner">
+                                        <div class="pb-8 pt-2 flex flex-col gap-4 font-sans text-sm text-ink/70">
+                                            <div class="flex justify-between"><span>Gebrannte Aubergine / Miso / Sesam</span> <span>28</span></div>
+                                            <div class="flex justify-between"><span>Steinbutt / Beurre Blanc / Schnittlauch</span> <span>42</span></div>
+                                            <div class="flex justify-between"><span>Rehrücken / Sellerie / Preiselbeere</span> <span>48</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </details>
+
+                            <details class="w-full border-b border-borderline group" name="menu-accordion">
+                                <summary class="w-full py-6 flex justify-between items-center focus:outline-none min-h-[48px]">
+                                    <h3 class="font-serif text-xl md:text-2xl text-ink group-hover:text-accent transition-colors">Ausklang</h3>
+                                    <div class="w-6 h-6 flex items-center justify-center relative accordion-icon text-ink/40">
+                                        <span class="absolute w-full h-[1px] bg-currentColor"></span>
+                                        <span class="absolute h-full w-[1px] bg-currentColor rotate-90"></span>
+                                    </div>
+                                </summary>
+                                <div class="accordion-content-wrapper">
+                                    <div class="accordion-content-inner">
+                                        <div class="pb-8 pt-2 flex flex-col gap-4 font-sans text-sm text-ink/70">
+                                            <div class="flex justify-between"><span>Buchweizen / Heu-Eis / Karamell</span> <span>14</span></div>
+                                            <div class="flex justify-between"><span>Auswahl europäischer Rohmilchkäse</span> <span>21</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </details>
+
+                        </div>
+
+                        <div class="block md:hidden mt-12 mb-8 reveal-fade">
+                            <a href="#full-menu" class="w-full btn-outline inline-flex items-center justify-center border border-ink py-5 px-6 rounded-full font-sans text-xs tracking-[0.15em] uppercase font-medium">
+                                <span>Komplette Speisekarte</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+            <div class="h-[50vh] bg-surface flex items-center justify-center border-t border-borderline">
+                <span class="font-sans text-xs tracking-[0.2em] text-ink/30 uppercase">Next Group: The Concierge Desk (Reservation)</span>
             </div>
 
         </div>
@@ -190,58 +275,78 @@
         gsap.ticker.add((time)=>{ lenis.raf(time * 1000); });
         gsap.ticker.lagSmoothing(0);
 
-        // 3. Initial Load Sequence (The "Prologue" feeling)
-        window.addEventListener("load", () => {
-            const tl = gsap.timeline();
-
-            // Background image scales down and fades in
-            tl.to("#hero-bg", {
-                opacity: 1,
-                scale: 1,
-                duration: 2.5,
-                ease: "power3.out"
-            }, 0);
-
-            // Hero Typography reveals
-            tl.to(".hero-text", {
-                opacity: 1,
-                y: 0,
-                duration: 1.2,
-                stagger: 0.2,
-                ease: "power2.out"
-            }, 0.5);
-
-            // Utility Bar slides up (The Business Anchor)
-            tl.to("#utility-bar", {
-                opacity: 1,
-                y: 0,
-                duration: 1.2,
-                ease: "power3.out"
-            }, 1.2);
+        // 3. Smooth Details Accordion Logic (Enhancing the native details tag)
+        const detailsElements = document.querySelectorAll('details');
+        detailsElements.forEach(details => {
+            const summary = details.querySelector('summary');
+            
+            summary.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent instantaneous open/close
+                
+                // If it's closed, we open it
+                if (!details.open) {
+                    details.open = true; // Set open attr so CSS grid starts animating to 1fr
+                    
+                    // Close others (Accordion behavior)
+                    detailsElements.forEach(otherDetails => {
+                        if (otherDetails !== details && otherDetails.open) {
+                            otherDetails.removeAttribute('open');
+                        }
+                    });
+                } else {
+                    // If it's open, we remove the open attr. CSS grid animates to 0fr.
+                    // Note: Removing 'open' instantly hides content natively. 
+                    // To keep the closing animation, we let CSS grid do its 0fr animation, 
+                    // then remove the open attribute via a timeout.
+                    details.classList.add('is-closing');
+                    details.removeAttribute('open');
+                    details.classList.remove('is-closing');
+                }
+            });
         });
 
-        // 4. Scroll Reveal for Host's Welcome
-        gsap.to(".welcome-text", {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            stagger: 0.2,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: ".welcome-text",
-                start: "top 85%", // Triggers when top of element hits 85% of viewport height
-            }
-        });
-        
-        // 5. Subtle Hero Parallax on Desktop
+        // 4. Reveal Animations
         let mm = gsap.matchMedia();
-        mm.add("(min-width: 768px)", () => {
-            gsap.to("#hero-bg", {
-                yPercent: 15, // Moves down slightly while scrolling
+
+        // General Fade Ups
+        const reveals = gsap.utils.toArray('.reveal-fade');
+        reveals.forEach(reveal => {
+            gsap.from(reveal, {
+                y: 40,
+                opacity: 0,
+                duration: 1.2,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: reveal,
+                    start: "top 85%",
+                }
+            });
+        });
+
+        // Signature Items Parallax & Reveal
+        const signatureItems = gsap.utils.toArray('.signature-item');
+        signatureItems.forEach(item => {
+            
+            // Container Reveal
+            gsap.from(item, {
+                y: 60,
+                opacity: 0,
+                duration: 1.5,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: item,
+                    start: "top 85%",
+                }
+            });
+
+            // Image Parallax Effect (Masking)
+            const img = item.querySelector('.parallax-img');
+            gsap.to(img, {
+                yPercent: 15, // Move image down slightly within its overflow-hidden container
                 ease: "none",
                 scrollTrigger: {
-                    trigger: "#hero-bg",
-                    start: "top top",
+                    trigger: item,
+                    start: "top bottom",
                     end: "bottom top",
                     scrub: true,
                 }
